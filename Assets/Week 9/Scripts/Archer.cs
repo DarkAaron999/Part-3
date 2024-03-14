@@ -12,4 +12,9 @@ public class Archer : Villager
         base.Attack();
         Instantiate(arroePrefab, spawnPoint.position, spawnPoint.rotation);
     }
+
+    public override ChestType CanOpen()
+    {
+        return ChestType.Archer;
+    }
 }
