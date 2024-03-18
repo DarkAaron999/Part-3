@@ -6,7 +6,7 @@ using TMPro;
 
 public class CharacterControl : MonoBehaviour
 {
-    public static TextMeshProUGUI villagerTypeText;
+    public TextMeshProUGUI villagerTypeText;
     public static Villager SelectedVillager { get; private set; }
     public static void SetSelectedVillager(Villager villager)
     {
@@ -16,5 +16,19 @@ public class CharacterControl : MonoBehaviour
         }
         SelectedVillager = villager;
         SelectedVillager.Selected(true);
+
+        Debug.Log (villager.gameObject.name);
+    }
+
+    public void Update()
+    {
+        if (SelectedVillager == false)
+        {
+            villagerTypeText.text = "Unselected";
+        }
+        else
+        {
+            villagerTypeText.text = SelectedVillager.gameObject.name;
+        }
     }
 }

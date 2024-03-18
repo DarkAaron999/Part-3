@@ -17,8 +17,9 @@ public class Thief : Villager
         transform.position = mousePosition;
         destination = transform.position;
         base.Attack();
+
         Instantiate(daggerPrefab, spawnPoint1.position, spawnPoint1.rotation);
-        Instantiate(daggerPrefab, spawnPoint2.position, spawnPoint2.rotation);     
+        Instantiate(daggerPrefab, spawnPoint2.position, spawnPoint2.rotation);
     }
     public override ChestType CanOpen()
     {
