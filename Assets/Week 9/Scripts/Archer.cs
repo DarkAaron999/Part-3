@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Archer : Villager
 {
-    public GameObject arroePrefab;
+    public GameObject arrowPrefab;
     public Transform spawnPoint;
+
     protected override void Attack()
     {
         destination = transform.position;
         base.Attack();
-        Instantiate(arroePrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(arrowPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 
     public override ChestType CanOpen()

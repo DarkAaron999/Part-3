@@ -2,11 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class CharacterControl : MonoBehaviour
 {
-    public TextMeshProUGUI villagerTypeText;
+    public TMPro.TextMeshProUGUI currentSelection;
+    public static CharacterControl Instance;
+
+    public void Start()
+    {
+        Instance = this;
+    }
     public static Villager SelectedVillager { get; private set; }
     public static void SetSelectedVillager(Villager villager)
     {
@@ -16,19 +21,14 @@ public class CharacterControl : MonoBehaviour
         }
         SelectedVillager = villager;
         SelectedVillager.Selected(true);
-
-        Debug.Log (villager.gameObject.name);
+        Instance.currentSelection.text = villager.ToString();
     }
 
-    public void Update()
-    {
-        if (SelectedVillager == false)
-        {
-            villagerTypeText.text = "Unselected";
-        }
-        else
-        {
-            villagerTypeText.text = SelectedVillager.gameObject.name;
-        }
-    }
+    //private void Update()
+    //{
+        //if(SelectedVillager != null)
+        //{
+            //currentSelection.text = SelectedVillager.GetType().ToString();
+        //}
+    //}
 }
