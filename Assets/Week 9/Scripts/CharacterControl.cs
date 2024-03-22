@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using System.Drawing;
 
 public class CharacterControl : MonoBehaviour
 {
@@ -34,6 +35,14 @@ public class CharacterControl : MonoBehaviour
     {
         Debug.Log(value + "character been selected");
         //SelectedVillager = availableVillagers[value];
+    }
+
+    public void OnValueChange(float size)
+    {
+        if (SelectedVillager != null)
+        {
+            SelectedVillager.transform.localScale = new Vector3(size, size, size);
+        }
     }
 
     //private void Update()
