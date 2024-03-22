@@ -176,7 +176,9 @@ MonoBehaviour:
   spawnPoint1: {fileID: 1510691577}
   spawnPoint2: {fileID: 940399314}
   spawnPoint3: {fileID: 1400942371}
-  time: 5
+  maxScale: {x: 5, y: 5}
+  buildSpeed: 2
+  time: 1
 --- !u!1 &940399313
 GameObject:
   m_ObjectHideFlags: 0
