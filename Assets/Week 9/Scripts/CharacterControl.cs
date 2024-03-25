@@ -17,7 +17,17 @@ public class CharacterControl : MonoBehaviour
     {
         Instance = this;
 
-        availableVillagers = new List<GameObject>();
+        // availableVillagers = new List<GameObject>();
+
+        dropdown.ClearOptions();
+        List<TMP_Dropdown.OptionData> options = new List<TMP_Dropdown.OptionData>();
+
+        for (int i = 0; i < availableVillagers.Count; i++)
+        {
+            TMP_Dropdown.OptionData option = new TMP_Dropdown.OptionData(availableVillagers[i].name);
+            options.Add(option);
+        }
+        dropdown.AddOptions(options);
     }
     public static Villager SelectedVillager { get; private set; }
     public static void SetSelectedVillager(Villager villager)
@@ -34,7 +44,8 @@ public class CharacterControl : MonoBehaviour
     public void DropdownHasChangedValuse(int value)
     {
         Debug.Log(value + "character been selected");
-        //SelectedVillager = availableVillagers[value];
+
+        SetSelectedVillager(availableVillagers[value].GetComponent<Villager>());
     }
 
     public void OnValueChange(float size)
@@ -45,11 +56,11 @@ public class CharacterControl : MonoBehaviour
         }
     }
 
-    //private void Update()
-    //{
-    //if(SelectedVillager != null)
-    //{
-    //currentSelection.text = SelectedVillager.GetType().ToString();
-    //}
-    //}
+    private void Update()
+    {
+        if (SelectedVillager != null)
+        {
+            currentSelection.text = SelectedVillager.GetType().ToString();
+        }
+    }
 }

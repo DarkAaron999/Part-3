@@ -11,6 +11,8 @@ public class Villager : MonoBehaviour
     bool clickingOnSelf;
     bool isSelected;
     public GameObject highlight;
+    public GameObject body;
+
 
     protected Vector2 destination;
     Vector2 movement;
@@ -29,11 +31,11 @@ public class Villager : MonoBehaviour
         highlight.SetActive(isSelected);
     }
 
-    private void OnMouseDown()
-    {
-        CharacterControl.SetSelectedVillager(this);
-        clickingOnSelf = true;
-    }
+    //private void OnMouseDown()
+    //{
+    //    CharacterControl.SetSelectedVillager(this);
+    //    clickingOnSelf = true;
+    //}
 
     private void OnMouseUp()
     {
@@ -42,16 +44,17 @@ public class Villager : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         movement = destination - (Vector2)transform.position;
 
         //flip the x direction of the game object & children to face the direction we're walking
         if(movement.x > 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            body.transform.position = new Vector3(-1, 1, 1);
         }
         else if (movement.x < 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            body.transform.localScale = new Vector3(1, 1, 1);
         }
 
         //stop moving if we're close enough to the target
