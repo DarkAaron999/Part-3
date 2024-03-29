@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlightControl : MonoBehaviour
 {
     public GameObject missile;
-    public float speed = 5;
+    public float speed = 5;    
     public float turningSpeedReduction = 0.75f;
     Coroutine coroutine;
 
