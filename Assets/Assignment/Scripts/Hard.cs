@@ -24,25 +24,31 @@ public class Hard : Enemies
     void Update()
     {
         //If statement for left mouse button down for testing
-        if (Input.GetMouseButtonDown(0))
-        {
-            //Easy enemy take 50 damage
-            EasyTakeDamge(50);
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    //Hard enemy take 50 damage
+        //    HardTakeDamge(50);
+        //}
         //If statement for when the maxHealth equals to the minHealth
-        if (maxHealth == minHealth)
+        if (maxHealth <= minHealth)
         {
             //Destory this gameobject
             Destroy(gameObject);
         }
     }
     //Function for the Easy enemy to take damage
-    public void EasyTakeDamge(float damage)
+    public void HardTakeDamge(float damage)
     {
         //Minus maxHealth when damage is taken
         maxHealth -= damage;
         //Minus the value of the slider when damage is taken
         slider.value -= damage;
         health = Mathf.Clamp(health, minHealth, maxHealth);
+    }
+    //Override function for damage type
+    public override DamageType damage()
+    {
+        //Return damage type hard
+        return DamageType.Hard;
     }
 }

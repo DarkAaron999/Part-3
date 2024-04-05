@@ -46,4 +46,10 @@ public class Enemies : MonoBehaviour
             }
         }
     }
+    //Override function for damage type
+    public virtual DamageType damage()
+    {
+        //Return damage tyoe enemies
+        return DamageType.Enemies;
+    }
 }

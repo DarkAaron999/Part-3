@@ -101,7 +101,7 @@ RectTransform:
   m_GameObject: {fileID: 4917910899728762431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0011093959, y: 0.001060854, z: 0.0025719216}
+  m_LocalScale: {x: 0.0011093959, y: 0.00051716634, z: 0.0025719216}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1766704542131995509}
@@ -176,10 +176,10 @@ GameObject:
   - component: {fileID: 6421256839179157444}
   - component: {fileID: 1107683228694988712}
   - component: {fileID: 8341280375235651948}
-  - component: {fileID: 4727790008380250219}
+  - component: {fileID: 2421937554670268520}
   m_Layer: 0
   m_Name: Easy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,7 +194,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 295723206408624078}
@@ -221,6 +221,8 @@ MonoBehaviour:
   - {fileID: 5003537255469194804, guid: 7975d6c2dc9695f46800104ee304abb5, type: 3}
   - {fileID: 4978056036262266256, guid: 04eac27d03636eb4db9f67dee6b12769, type: 3}
   speed: 5
+  maxHealth: 0
+  minHealth: 0
   health: 0
   targetToWaypoint: 0
   slider: {fileID: 7250783994866150450}
@@ -303,8 +305,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &4727790008380250219
-BoxCollider2D:
+--- !u!58 &2421937554670268520
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -332,22 +334,12 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 1.5
 --- !u!1 &7418431385709087274
 GameObject:
   m_ObjectHideFlags: 0
