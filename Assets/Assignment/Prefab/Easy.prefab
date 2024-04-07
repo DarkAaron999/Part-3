@@ -220,7 +220,7 @@ MonoBehaviour:
   - {fileID: 6938993430289133565, guid: 00097e3ef9028c549b5b5c1cbafb8095, type: 3}
   - {fileID: 5003537255469194804, guid: 7975d6c2dc9695f46800104ee304abb5, type: 3}
   - {fileID: 4978056036262266256, guid: 04eac27d03636eb4db9f67dee6b12769, type: 3}
-  speed: 5
+  speed: 3
   maxHealth: 0
   minHealth: 0
   health: 0

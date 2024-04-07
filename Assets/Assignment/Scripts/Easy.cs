@@ -10,16 +10,19 @@ public class Easy : Enemies
     //Start is called before the first frame update
     void Start()
     {
-        //Starting with 3 speed
-        speed = 3;
+        //Starting with 3 maxSpeed
+        maxSpeed = 3;
+        //Setting the minSpeed equal to 0
+        minSpeed = 0;
+        //Setting the speed as equal to the maxSpeed
+        speed = maxSpeed;
         //Starting with 150 health which is the maxHealth
         maxHealth = 150;
-        //Setting the minHealth 
+        //Setting the minHealth equal to 0 
         minHealth = 0;
         //Setting the health as equal to the maxHealth
         health = maxHealth;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -43,7 +46,16 @@ public class Easy : Enemies
         maxHealth -= damage;
         //Minus the value of the slider when damage is taken
         slider.value -= damage;
+        //The health equal to mathf then the health, minHealth, and maxHealth
         health = Mathf.Clamp(health, minHealth, maxHealth);
+    }
+    //Function for the enemy freeze
+    public void EnemyFreeze(float frezee)
+    {
+        //Misus the maxSpeed when frezeing is happening
+        maxSpeed -= frezee;
+        //The speed equal to mathf then the speed, minSpeed, and maxSpeed
+        speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
     }
     //Override function for damage type
     public override DamageType damage()

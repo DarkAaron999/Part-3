@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //Referencing the enum damage type Enemies, Easy, Medium, Hard
 public enum DamageType { Enemies, Easy, Medium, Hard }
-public class Bullet : MonoBehaviour
+public class Arrow1 : MonoBehaviour
 {
     //Referencing the rigidbody
     Rigidbody rb;
@@ -12,14 +12,14 @@ public class Bullet : MonoBehaviour
     //Vector2 of the bullet position
     Vector2 bulletPosition;
     //Referencing the Enemies script
-    public Enemies enemies;
+    private Enemies enemies;
     //Reference for the easy damage type
     public DamageType easyDamageType;
     //Reference for the medium damage type
     public DamageType mediumDamageType;
     //Reference for the hard damage type
     public DamageType hardDamageType;
-    // Start is called before the first frame update
+    //Start is called before the first frame update
     void Start()
     {
         //Getting the rigidbody component
@@ -35,7 +35,8 @@ public class Bullet : MonoBehaviour
         //Bullet position equal to transform position
         bulletPosition = transform.position;
         //Transform position equal vector3 Lerp the Bullet position Enemy position at 50f times Time.deltaTime
-        transform.position = Vector3.Lerp (bulletPosition, enemyPosition, 50 * Time.deltaTime);
+        transform.position = Vector3.Lerp(bulletPosition, enemyPosition, 2 * Time.deltaTime);
+        Destroy(gameObject, 1);
     }
     //Function OnTriggerStay2D
     private void OnTriggerStay2D(Collider2D collision)

@@ -11,6 +11,10 @@ public class Enemies : MonoBehaviour
     //Referencing the list of gameobjects/Waypoints
     public GameObject[] waypoints;
     //A float for speed
+    public float maxSpeed;
+    //A float for speed
+    public float minSpeed;
+    //A float for speed
     public float speed;
     //A float for maxHealth for the enemies
     public float maxHealth;

@@ -20,7 +20,7 @@ public class SpawnEnemy : MonoBehaviour
     //Getting the coroutine
     Coroutine coroutine;
 
-    // Start is called before the first frame update
+    //Start is called before the first frame update
     void Start()
     {
         //At start set the spawn timer at 0
@@ -76,6 +76,6 @@ public class SpawnEnemy : MonoBehaviour
         //Set the spawn timer to 0
         spawnTimer = 0;
         //Debug for testing
-        Debug.Log("test");
+        Debug.Log("SpawnStarting");
     }
 }

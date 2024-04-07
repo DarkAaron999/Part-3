@@ -10,16 +10,19 @@ public class Medium : Enemies
     //Start is called before the first frame update
     void Start()
     {
-        //Starting with 5 speed
-        speed = 2;
+        //Starting with 5 maxSpeed
+        maxSpeed = 5;
+        //Setting the minSpeed equal to 0
+        minSpeed = 0;
+        //Setting the speed as equal to the maxSpeed
+        speed = maxSpeed;
         //Starting with 100 health which is the maxHealth
         maxHealth = 100;
-        //Setting the minHealth 
+        //Setting the minHealth equal to 0
         minHealth = 0;
         //Setting the health as equal to the maxHealth
         health = maxHealth;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -44,6 +47,14 @@ public class Medium : Enemies
         //Minus the value of the slider when damage is taken
         slider.value -= damage;
         health = Mathf.Clamp(health, minHealth, maxHealth);
+    }
+    //Function for the enemy freeze
+    public void EnemyFreeze(float frezee)
+    {
+        //Misus the maxSpeed when frezeing is happening
+        maxSpeed -= frezee;
+        //The speed equal to mathf then the speed, minSpeed, and maxSpeed
+        speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
     }
     //Override function for damage type
     public override DamageType damage()

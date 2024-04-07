@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ThingMaker
   - Enemy
+  - SimpleTower
   layers:
   - Default
   - TransparentFX
