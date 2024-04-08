@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 5878326745915235261}
   m_Layer: 0
   m_Name: Frozen Tower
-  m_TagString: SimpleTower
+  m_TagString: FrozenTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,10 +134,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   tower: {fileID: 9215763239690973494}
-  shootingTime: 1
+  shootingTime: 0.5
   shootTimer: 0
   radius: {fileID: 3011861872677871115}
-  freezeDuration: 3
+  freezeDuration: 0
+  freezeColddown: 0
 --- !u!212 &3426139490818586864
 SpriteRenderer:
   m_ObjectHideFlags: 0

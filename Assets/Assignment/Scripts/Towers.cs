@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using System;
@@ -8,10 +7,10 @@ using System;
 public class Towers : MonoBehaviour
 {
     //Referencing the enemy gameobject
-    public GameObject enemy;
+    public Transform enemy;
     //Referencing the transform tower
     public Transform tower;
-    //A private float for shooting time
+    //A public float for shooting time
     public float shootingTime;
     //A public float for shoot timer
     public float shootTimer;
@@ -46,13 +45,13 @@ public class Towers : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             //Enemy equal collision gameobject
-            enemy = collision.gameObject;
+            enemy = collision.transform;
         }
         //If statement enemy is not equal to null
         if (enemy != null)
         {
             //Enemy equal enemy gameobject
-            enemy = enemy.gameObject;
+            enemy = enemy.transform;
         }
     }
     //Function OnTriggerExit2D when a gameobject exits a collision
@@ -62,7 +61,7 @@ public class Towers : MonoBehaviour
         if (enemy = null)
         {
             //Enemy equal enemy gameobject
-            enemy = enemy.gameObject;
+            enemy = enemy.transform;
         }
     }
     //Function OnMouseOver

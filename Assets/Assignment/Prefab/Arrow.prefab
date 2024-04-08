@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29977d0ce0dbf9489aebb8d8817eb94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towers: {fileID: 459773089508473826, guid: ceefe81e18e1f2640ad19149a4680848, type: 3}
   easyDamageType: 1
   mediumDamageType: 2
   hardDamageType: 3

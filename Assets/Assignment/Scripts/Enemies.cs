@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -24,6 +23,7 @@ public class Enemies : MonoBehaviour
     public float health;
     //A int for the target to waypoint equal 0
     public int targetToWaypoint = 0;
+    public Arrow1 arrow;
     //Start is called before the first frame update
     void Start()
     {
@@ -47,6 +47,8 @@ public class Enemies : MonoBehaviour
             {
                 //Destory the gameobject
                 Destroy(gameObject);
+                //Arrow set to null
+                arrow = null;
             }
         }
     }

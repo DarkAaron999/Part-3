@@ -37,6 +37,8 @@ public class Hard : Enemies
         {
             //Destory this gameobject
             Destroy(gameObject);
+            //Arrow set to null
+            arrow = null;
         }
     }
     //Function for the Easy enemy to take damage
@@ -55,6 +57,16 @@ public class Hard : Enemies
         maxSpeed -= frezee;
         //The speed equal to mathf then the speed, minSpeed, and maxSpeed
         speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
+    }
+    //Function for OnTruggerEnter2D
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //If statement for on collision find gameobject with tag "PlayerCastle"
+        if (collision.CompareTag("PlayerCastle"))
+        {
+            //On collision player takes 25 damage
+            collision.SendMessage("PlayerTakeDamage", 25, SendMessageOptions.DontRequireReceiver);
+        }
     }
     //Override function for damage type
     public override DamageType damage()

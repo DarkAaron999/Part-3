@@ -6,7 +6,10 @@ TagManager:
   tags:
   - ThingMaker
   - Enemy
-  - SimpleTower
+  - PlayerCastle
+  - ArrowTower
+  - FrozenTower
+  - SpikeTower
   layers:
   - Default
   - TransparentFX

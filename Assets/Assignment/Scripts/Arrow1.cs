@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 //Referencing the enum damage type Enemies, Easy, Medium, Hard
 public enum DamageType { Enemies, Easy, Medium, Hard }
@@ -30,23 +31,37 @@ public class Arrow1 : MonoBehaviour
     //Function fixed update
     private void FixedUpdate()
     {
-        //Enemy position is equal to enemies transform position
-        enemyPosition = enemies.transform.position;
-        //Bullet position equal to transform position
-        bulletPosition = transform.position;
-        //Transform position equal vector3 Lerp the Bullet position Enemy position at 50f times Time.deltaTime
-        transform.position = Vector3.Lerp(bulletPosition, enemyPosition, 2 * Time.deltaTime);
-        Destroy(gameObject, 1);
+        //If statement for enemies script arrow is not equal to null
+        if (enemies.arrow != null)
+        {
+            //Enemy position is equal to enemies transform position
+            enemyPosition = enemies.transform.position;
+            //Bullet position equal to transform position
+            bulletPosition = transform.position;
+            //Transform position equal vector3 Lerp the Bullet position Enemy position at 50f times Time.deltaTime
+            transform.position = Vector3.Lerp(bulletPosition, enemyPosition, 2 * Time.deltaTime);
+            //Terminates the execution
+            return;
+        }
+        //If statement for enemies script arrow is equal to null
+        if (enemies.arrow == null)
+        {
+            //Destroy gameobject
+            Destroy(gameObject);
+            //Terminates the execution
+            return;
+        }
     }
     //Function OnTriggerStay2D
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         //Find the distance between the Bullet position and collision transform position
         //float dist = Vector3.Distance (bulletPosition, collision.transform.position);
         //Write this in the console 
         //Debug.Log(" dist: " + dist);
+        //If statement collision if gameobject has tag Enemy
+        //If statement collision if gameobject has tag Enemy
 
-        //If statement for collision try get component enemies out Enemies enemies
         if (collision.TryGetComponent<Enemies>(out Enemies enemies))
         {
             //If statement enemies damage is equal to easy damage type or easy damage type is equal damage type enemies 
