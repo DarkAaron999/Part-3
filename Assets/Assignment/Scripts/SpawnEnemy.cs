@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using Unity.VisualScripting;
 
 public class SpawnEnemy : MonoBehaviour
 {
@@ -18,21 +20,27 @@ public class SpawnEnemy : MonoBehaviour
     bool spawning = false;
     //Getting the coroutine
     Coroutine coroutine;
+    //Referencing the timer text
+    public TextMeshProUGUI timerText;
 
     //Start is called before the first frame update
     void Start()
     {
-        //At start set the spawn timer at 0
-        spawnTimer = 0;
+        //At start set the spawn timer at 5
+        spawnTimer = 5;
+        //timer text is equal to spawn timer
+        timerText.text = spawnTimer.ToString("N0");
     }
     // Update is called once per frame
     void Update()
     {
+        //timer text is equal to spawn timer
+        timerText.text = spawnTimer.ToString("N0");
         //If statement if spawning is equal to true
         if (spawning == true)
         {
-            //Increase the spawn time by 1f times Time.deltatime
-            spawnTimer += 1 * Time.deltaTime;
+            //Increase the spawn time by Time.deltatime
+            spawnTimer -= Time.deltaTime;
         }
     }
     //SpawnIn coroutine function
@@ -50,11 +58,11 @@ public class SpawnEnemy : MonoBehaviour
                 yield return new WaitForSeconds(spawnTimerTarget);
                 //Spawn in the enemy prefab at the spawn point
                 Instantiate(enemyPrefab[i], spawnPoint.position, spawnPoint.rotation);
-                //Set the spawn timer to 0
-                spawnTimer = 0;
-                //Wait for 5f
-                yield return new WaitForSeconds(spawnTimerTarget);
+                //Set the spawn timer to 5
+                spawnTimer = 5;
             }
+            //Set the spawning to false
+            spawning = false;
             //Return
             yield return null;
         }
@@ -67,13 +75,15 @@ public class SpawnEnemy : MonoBehaviour
         {
             //Stop the coroutine
             StopCoroutine(coroutine);
+            //Set the spawn timer to 5
+            spawnTimer = 5;
         }
         //Set the spawning to true
         spawning = true;
         //Start the coroutine
         StartCoroutine(SpawnIn());
         //Set the spawn timer to 0
-        spawnTimer = 0;
+        spawnTimer = 5;
         //Debug for testing
         Debug.Log("SpawnStarting");
     }

@@ -23,6 +23,7 @@ public class Enemies : MonoBehaviour
     public float health;
     //A int for the target to waypoint equal 0
     public int targetToWaypoint = 0;
+    //Referencing the Arrow1 script
     public Arrow1 arrow;
     //Start is called before the first frame update
     void Start()

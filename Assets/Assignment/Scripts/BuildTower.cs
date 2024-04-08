@@ -8,6 +8,8 @@ public class BuildTower : MonoBehaviour
     public List<GameObject> tower;
     //Referencing the BuildTower script
     public static BuildTower Instance;
+    //Referencing the PlayerMoney
+    public PlayerMoney playerMoney;
     //Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,11 @@ public class BuildTower : MonoBehaviour
     {
         //Get the mouse position to camera
         Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (playerMoney.money < 100)
+        {
+            //Set selected towers to null
+            SelectedTowers = null;
+        }
     }
     //Function for OnMouseOver
     public void OnMouseOver()
@@ -33,6 +40,8 @@ public class BuildTower : MonoBehaviour
         {
             //Spawns in the selected tower gameobject to the transform position and rotation
             Instantiate(SelectedTowers.gameObject, transform.position, transform.rotation);
+            //Minus 100 money from PlayerMoney script
+            playerMoney.money -= 100;
             //Selected set to null
             SelectedTowers = null;
         }
@@ -52,6 +61,5 @@ public class BuildTower : MonoBehaviour
         SelectedTowers = towers;
         //SelectedTowers Selected to true
         SelectedTowers.Selected(true);
-
     }
 }

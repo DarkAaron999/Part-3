@@ -7,6 +7,8 @@ public class Hard : Enemies
 {
     //Referencing the slider
     public Slider slider;
+    //Referencing the PlayerMoney script
+    public PlayerMoney playerMoney;
     //Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class Hard : Enemies
         minHealth = 0;
         //Setting the health as equal to the maxHealth
         health = maxHealth;
+        playerMoney = GameObject.FindGameObjectWithTag("PlayerCastle").GetComponent<PlayerMoney>();
     }
     // Update is called once per frame
     void Update()
@@ -37,6 +40,8 @@ public class Hard : Enemies
         {
             //Destory this gameobject
             Destroy(gameObject);
+            //Add 150 money to the player money
+            playerMoney.money += 150;
             //Arrow set to null
             arrow = null;
         }

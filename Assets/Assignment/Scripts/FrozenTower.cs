@@ -13,6 +13,7 @@ public class FrozenTower : Towers
     {
         //Freeze Duration is set to 1 at start
         freezeDuration = 1f;
+        radius.SetActive(false);
     }
     //Update is called once per frame
     void Update()
