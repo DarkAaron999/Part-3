@@ -27,7 +27,7 @@ public class SpawnEnemy : MonoBehaviour
     void Start()
     {
         //At start set the spawn timer at 5
-        spawnTimer = 5;
+        spawnTimer = 5 * Time.deltaTime;
         //timer text is equal to spawn timer
         timerText.text = spawnTimer.ToString("N0");
     }
