@@ -43,8 +43,8 @@ public class Enemies : MonoBehaviour
         {
             //Increase the target to waypoint 
             targetToWaypoint++;
-            //If statement for the target to waypoint is equal to 11
-            if (targetToWaypoint == 11)
+            //If statement for the target to waypoint is equal to 13
+            if (targetToWaypoint == 13)
             {
                 //Destory the gameobject
                 Destroy(gameObject);
