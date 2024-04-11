@@ -15,7 +15,7 @@ public class PlayerMoney : MonoBehaviour
     void Start()
     {
         //Money is set at 500 at start
-        money = 500;
+        money = 600;
         //Static money is set at money value at start
         staticMoney = money;
         //money text is equal to money

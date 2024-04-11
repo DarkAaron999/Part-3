@@ -27,8 +27,8 @@ public class Spikes : MonoBehaviour
     {
         //Moves the transform of the gameobjects rigidbody2D up in vector2 
         rb.MovePosition(rb.position + (Vector2)transform.up * speed * Time.deltaTime);
-        //Destoys the gameobject in 5 frames
-        Destroy(gameObject, 5f);
+        //Destoys the gameobject in 3 frames times Time.deltaTime
+        Destroy(gameObject, 5f * Time.deltaTime);
     }
     //Function for OnTriggerStay2D
     private void OnTriggerStay2D(Collider2D collision)

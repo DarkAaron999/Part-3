@@ -39,8 +39,8 @@ public class Arrow1 : MonoBehaviour
             //Bullet position equal to transform position
             bulletPosition = transform.position;
             //Transform position equal vector3 Lerp the Bullet position Enemy position at 50f times Time.deltaTime
-            transform.position = Vector3.Lerp(bulletPosition, enemyPosition, 2 * Time.deltaTime);
-            //Terminates the execution
+            transform.position = Vector3.Lerp(bulletPosition, enemyPosition, 10 * Time.deltaTime);
+            //Return
             return;
         }
         //If statement for enemies script arrow is equal to null
@@ -48,7 +48,7 @@ public class Arrow1 : MonoBehaviour
         {
             //Destroy gameobject
             Destroy(gameObject);
-            //Terminates the execution
+            //Return
             return;
         }
     }

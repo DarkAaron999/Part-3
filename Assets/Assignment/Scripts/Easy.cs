@@ -41,7 +41,7 @@ public class Easy : Enemies
             //Destory this gameobject
             Destroy(gameObject);
             //Add 75 money to the player money
-            playerMoney.money += 75;
+            playerMoney.money += 100;
             //Arrow set to null
             arrow = null;
         }
